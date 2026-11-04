@@ -1,136 +1,132 @@
-# Greenfield Campus Event Management System (Assignment 2)
+# Greenfield Campus Event Management System
 ### Greenfield Institute of Technology (GIT)
 
-A full-stack, enterprise-grade Campus Event Management & Registration Portal upgraded from Assignment 1 (static HTML/vanilla JS & text-file storage) to **Assignment 2 (React.js + Express + MongoDB)**.
+A full-stack web application designed to simplify campus event management and student registration. The platform allows students to explore campus events, register for events, and manage their registrations, while administrators can manage events and monitor student participation.
 
----
+## Features
 
-## 🚀 Key Improvements & Upgrades in Assignment 2
+### Student Module
+- Student registration and login
+- Email validation using `@greenfieldit.edu`
+- Personalized student dashboard
+- Browse and search campus events
+- View event details
+- Register for events
+- View and cancel registrations
+- Update student profile
 
-1. **Frontend**: Migrated to a modern single-page application (SPA) using **React.js** (Vite), React Router v7, React Context API (`AuthContext`), and responsive CSS.
-2. **Design Fidelity**: Exact preservation of Greenfield Institute's original design system, CSS styling tokens, color palette, navigation bar, typography, and card layouts.
-3. **Database**: Migrated flat-file storage (`data/*.txt`) to **MongoDB** using **Mongoose** with strict schema validation, indexes, and automated relations.
-4. **Security & Authentication**:
-   - Industry-standard **JWT (JSON Web Tokens)** with role-based middleware (`requireAdmin`, `requireStudent`).
-   - Password hashing using **bcryptjs**.
-   - Student email domain restriction strictly enforced for `@greenfieldit.edu`.
-   - Fixed administrative access without student privilege escalation.
-   - Cross-Origin Resource Sharing (CORS) and Vite reverse proxy configured.
-5. **Business Logic & Automation**:
-   - Automated seat availability tracking (`capacity - registeredCount`).
-   - Duplicate registration prevention.
-   - Event deadline validation.
-   - Capacity increment/decrement on registration approval or cancellation.
-   - Student dashboard showing personal registrations only; Admin dashboard with system-wide analytics, event CRUD, and registration moderation.
+### Admin Module
+- Secure administrator login
+- Admin dashboard with event and registration statistics
+- Create, view, update, and delete events
+- Manage student registrations
+- Monitor event participation
+- Approve or reject registrations
 
----
+### Security and Functionality
+- JWT-based authentication
+- Role-based access control
+- Password hashing using bcryptjs
+- Duplicate event registration prevention
+- Event capacity management
+- Registration deadline validation
+- Protected student and admin routes
 
-## 📁 Project Architecture & Structure
+## Technologies Used
 
-```
-event pro/
-├── backend/                        # Node.js + Express + MongoDB API Server
-│   ├── config/
-│   │   └── db.js                   # Mongoose connection configuration
-│   ├── models/
-│   │   ├── Student.js              # Student Mongoose Schema & bcrypt hashing
-│   │   ├── Event.js                # Event Mongoose Schema & status enums
-│   │   └── Registration.js         # Registration Mongoose Schema & status
-│   ├── middleware/
-│   │   └── auth.js                 # JWT verification & role authorization (Admin/Student)
-│   ├── routes/
-│   │   ├── authRoutes.js           # Student & Admin authentication endpoints
-│   │   ├── studentRoutes.js        # Student profile view & update endpoints
-│   │   ├── eventRoutes.js          # Public event listings & Admin event CRUD
-│   │   ├── registrationRoutes.js   # Student registration, cancellation & Admin review
-│   │   └── adminRoutes.js          # Admin dashboard statistics & metrics
-│   ├── scripts/
-│   │   └── seed.js                 # Database migration script (from Assignment 1 txt files)
-│   ├── .env                        # Backend environment configuration
-│   ├── package.json
-│   └── server.js                   # Express application entry point
+| Category | Technologies |
+|---|---|
+| Frontend | React.js, Vite, React Router, CSS |
+| Backend | Node.js, Express.js |
+| Database | MongoDB, Mongoose |
+| Authentication | JWT, bcryptjs |
+| API Communication | REST API |
+
+## Project Structure
+
+```text
+Campus-Event-Management-System/
 │
-├── frontend/                       # React.js SPA (Vite)
+├── backend/
+│   ├── config/
+│   ├── models/
+│   ├── middleware/
+│   ├── routes/
+│   ├── scripts/
+│   ├── server.js
+│   └── package.json
+│
+├── frontend/
 │   ├── src/
 │   │   ├── components/
-│   │   │   ├── Navbar.jsx          # Role-aware navigation header
-│   │   │   ├── Footer.jsx          # Campus portal footer
-│   │   │   ├── Toast.jsx           # Global notification alerts
-│   │   │   └── ProtectedRoute.jsx  # Role-based route guard
 │   │   ├── context/
-│   │   │   └── AuthContext.jsx     # Global auth state, JWT token & API client
-│   │   ├── css/                    # Preserved original CSS stylesheets
-│   │   │   ├── style.css
-│   │   │   ├── home.css
-│   │   │   ├── student.css
-│   │   │   ├── events.css
-│   │   │   └── admin.css
+│   │   ├── css/
 │   │   ├── pages/
-│   │   │   ├── Home.jsx            # Splash welcome page
-│   │   │   ├── RoleSelection.jsx   # Student / Admin portal selector
-│   │   │   ├── StudentLogin.jsx    # Student login with demo credentials
-│   │   │   ├── StudentRegister.jsx # Student registration (@greenfieldit.edu only)
-│   │   │   ├── AdminLogin.jsx      # Admin login with fixed account
-│   │   │   ├── StudentDashboard.jsx# Student personalized dashboard
-│   │   │   ├── Events.jsx          # Live search & category filter catalogue
-│   │   │   ├── EventDetails.jsx    # Event details & registration booking
-│   │   │   ├── MyRegistrations.jsx # Student registration tracking & cancellation
-│   │   │   ├── Profile.jsx         # Student profile update
-│   │   │   ├── AdminDashboard.jsx  # Admin stats & recent activity
-│   │   │   ├── ManageEvents.jsx    # Admin Event CRUD (Create, Edit, Delete)
-│   │   │   └── ManageRegistrations.jsx # Admin registration approval/rejection
-│   │   ├── App.jsx                 # React Router routing configuration
+│   │   ├── App.jsx
 │   │   └── main.jsx
-│   ├── vite.config.js              # Vite proxy configuration for /api
-│   ├── package.json
-│   └── index.html
+│   ├── index.html
+│   ├── vite.config.js
+│   └── package.json
 │
-├── data/                           # Original Assignment 1 text files (preserved)
-├── package.json                    # Unified root package.json
+├── package.json
 └── README.md
 ```
 
----
-
-## 🔑 Demo Login Credentials
-
-### Student Account
-- **Email:** `kiruthika@greenfieldit.edu`
-- **Password:** `student123`
-*(Or create a new student account using any `@greenfieldit.edu` email)*
-
-### Administrator Account (Fixed)
-- **Email:** `admin@greenfieldit.edu`
-- **Password:** `admin`
-
----
-
-## ⚙️ Setup & Running the Application
+## Installation and Setup
 
 ### Prerequisites
-- Node.js (v18+)
-- MongoDB running locally on `mongodb://127.0.0.1:27017`
+- Node.js (v18 or above)
+- MongoDB
 
-### 1. Install Dependencies
-Run the following in the project root:
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/kiruthika569/Campus-Event-Management-System.git
+cd Campus-Event-Management-System
+```
+
+### 2. Install Dependencies
+
 ```bash
 npm install
-cd backend && npm install
-cd ../frontend && npm install
+cd backend
+npm install
+cd ../frontend
+npm install
 cd ..
 ```
 
-### 2. Seed Database (Optional - Already seeded)
-To re-import all original events and students from the Assignment 1 text files into MongoDB:
-```bash
-npm run seed
-```
+### 3. Configure Environment Variables
 
-### 3. Start Frontend & Backend Concurrently
+Create a `.env` file inside the backend folder and configure the MongoDB connection string and required authentication secret.
+
+### 4. Start the Application
+
 From the project root directory:
+
 ```bash
 npm run dev
 ```
 
+### 5. Access the Application
+
 - **Frontend:** http://localhost:5173
 - **Backend API:** http://localhost:5000/api
+
+## Demo Login Credentials
+
+**Student Account**
+
+- Email: `kiruthika@greenfieldit.edu`
+- Password: `student123`
+
+**Administrator Account**
+
+- Email: `admin@greenfieldit.edu`
+- Password: `admin`
+
+New students can also register using a valid `@greenfieldit.edu` email address.
+
+## Project Objective
+
+To provide a centralized and user-friendly platform for managing campus events, simplifying student registrations, and helping administrators efficiently organize and monitor college activities.

@@ -1,0 +1,67 @@
+[
+  {
+    "id": "R001",
+    "studentId": "GIT2026001",
+    "studentName": "Alex Morgan",
+    "studentEmail": "student@greenfield.edu",
+    "eventId": "E001",
+    "eventTitle": "AI Innovation Workshop",
+    "eventCategory": "Technical",
+    "eventDate": "2026-10-15",
+    "eventVenue": "Main Auditorium, GIT Campus",
+    "registrationDate": "2026-09-01",
+    "status": "Cancelled"
+  },
+  {
+    "id": "R002",
+    "studentId": "GIT2026001",
+    "studentName": "Alex Morgan",
+    "studentEmail": "student@greenfield.edu",
+    "eventId": "E003",
+    "eventTitle": "Annual Sports Meet 2026",
+    "eventCategory": "Sports",
+    "eventDate": "2026-11-05",
+    "eventVenue": "GIT Central Sports Complex",
+    "registrationDate": "2026-09-02",
+    "status": "Approved"
+  },
+  {
+    "id": "R003",
+    "studentId": "GIT2026002",
+    "studentName": "Samantha Reed",
+    "studentEmail": "samantha@greenfield.edu",
+    "eventId": "E002",
+    "eventTitle": "Web Development Bootcamp",
+    "eventCategory": "Technical",
+    "eventDate": "2026-10-20",
+    "eventVenue": "Computer Lab 3, GIT Academic Block",
+    "registrationDate": "2026-09-03",
+    "status": "Approved"
+  },
+  {
+    "id": "R004",
+    "studentId": "GIT2026001",
+    "studentName": "Kiruthika",
+    "studentEmail": "kiruthika@greenfieldit.edu",
+    "eventId": "E002",
+    "eventTitle": "Web Development Bootcamp",
+    "eventCategory": "Technical",
+    "eventDate": "2026-10-20",
+    "eventVenue": "Computer Lab 3,GIT Academic Block",
+    "registrationDate": "2026-09-09",
+    "status": "Rejected"
+  },
+  {
+    "id": "R005",
+    "studentId": "GIT2026001",
+    "studentName": "Kiruthika",
+    "studentEmail": "kiruthika@greenfieldit.edu",
+    "eventId": "E005",
+    "eventTitle": "Mathematics & Data Science Symposium",
+    "eventCategory": "Academic",
+    "eventDate": "2026-10-28",
+    "eventVenue": "Conference Hall B",
+    "registrationDate": "2026-09-09",
+    "status": "Registered"
+  }
+]

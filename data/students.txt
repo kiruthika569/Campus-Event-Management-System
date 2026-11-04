@@ -1,0 +1,32 @@
+[
+  {
+    "id": "S001",
+    "studentId": "GIT2026001",
+    "name": "Kiruthika",
+    "email": "kiruthika@greenfieldit.edu",
+    "password": "student123",
+    "department": "Computer Science",
+    "year": "3rd Year",
+    "registeredAt": "2026-01-15"
+  },
+  {
+    "id": "S002",
+    "studentId": "GIT2026002",
+    "name": "Aparna",
+    "email": "aparna@greenfieldit.edu",
+    "password": "student123",
+    "department": "Electrical Engineering",
+    "year": "2nd Year",
+    "registeredAt": "2026-01-20"
+  },
+  {
+    "id": "S003",
+    "studentId": "GIT2026003",
+    "name": "Kavipriya",
+    "email": "kavipriya@greenfieldit.edu",
+    "password": "student123",
+    "department": "Information Technology",
+    "year": "2nd Year",
+    "registeredAt": "2026-01-22"
+  }
+]
